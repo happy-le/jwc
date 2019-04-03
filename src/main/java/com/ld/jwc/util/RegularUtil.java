@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 
 /**
  * @author mgq  2019.2.27
- *
+ * <p>
  * 优秀 -- 95
  * 良好 -- 85
  * 中等 -- 75
@@ -21,6 +21,7 @@ import java.util.regex.Pattern;
 public class RegularUtil {
     static List<String> testClassesList = new ArrayList<>();
     static Map<String, String> testClassGradeMap = new HashMap<>();
+
     static {
         testClassesList.add("优秀");
         testClassesList.add("良好");
@@ -44,8 +45,8 @@ public class RegularUtil {
         double sum = 0;
         while (m.find()) {
             GradeDto gt = new GradeDto();
-            List<String> dataStringList= tdText(m.group());
-            if(dataStringList.size() <= 0) {
+            List<String> dataStringList = tdText(m.group());
+            if (dataStringList.size() <= 0) {
                 continue;
             }
 
@@ -54,7 +55,7 @@ public class RegularUtil {
             gt.setNo(dataStringList.get(2));
             gt.setCredit(Double.valueOf(dataStringList.get(3)));
             gt.setTime(dataStringList.get(4));
-            if(testClassesList.contains(dataStringList.get(5))) {
+            if (testClassesList.contains(dataStringList.get(5))) {
                 gt.setGrade(Double.valueOf(testClassGradeMap.get(dataStringList.get(5))));
             } else {
                 gt.setGrade(Double.valueOf(dataStringList.get(5)));
@@ -62,16 +63,13 @@ public class RegularUtil {
             i += gt.getCredit();
             sum += gt.getCredit() * gt.getGrade();
             ls.add(gt);
-//            System.out.println(m.group());
-//            i++;
         }
-        for(GradeDto gto : ls) {
+        for (GradeDto gto : ls) {
             System.out.println(gto);
         }
         System.out.println(sum);
         System.out.println(i);
-        System.out.println(sum/i);
-//        System.exit(0);
+        System.out.println(sum / i);
         return ls;
     }
 
@@ -85,16 +83,16 @@ public class RegularUtil {
         Pattern p = getPattern("<td[^>]*?>(\\n|.)*?</td>");
         Matcher m = p.matcher(s);
         List<String> stringList = new ArrayList<>();
-        while(m.find()) {
-            stringList.add(m.group().replaceAll("<td bgcolor=\"#EAE2F3\"><p align=\"center\">","").replaceAll("</p></td>",""));
+        while (m.find()) {
+            stringList.add(m.group().replaceAll("<td bgcolor=\"#EAE2F3\"><p align=\"center\">", "").replaceAll("</p></td>", ""));
 
         }
 
         //TD
         p = getPattern("<TD[^>]*?>(\\n|.)*?</TD>");
         m = p.matcher(s);
-        while(m.find()) {
-            stringList.add(m.group().replaceAll("<TD>","").replaceAll("</TD>",""));
+        while (m.find()) {
+            stringList.add(m.group().replaceAll("<TD>", "").replaceAll("</TD>", ""));
 
         }
         return stringList;

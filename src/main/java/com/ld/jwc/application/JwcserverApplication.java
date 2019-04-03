@@ -9,7 +9,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  * @version 1.0
  */
 @SpringBootApplication
-@EnableScheduling//定时任务
+@EnableScheduling
 public class JwcserverApplication {
     public static void main(String[] args) {
         SpringApplication.run(JwcserverApplication.class, args);

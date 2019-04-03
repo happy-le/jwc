@@ -14,7 +14,7 @@ import java.util.Collection;
  */
 @Getter
 @Setter
-public class User implements UserDetails{
+public class User implements UserDetails {
 
     private Integer uid;
 
@@ -57,7 +57,7 @@ public class User implements UserDetails{
     @Override
     @JsonIgnore
     public boolean isEnabled() {
-        if(recordStatus == 0) {
+        if (recordStatus == 0) {
             return true;
         }
         return false;
