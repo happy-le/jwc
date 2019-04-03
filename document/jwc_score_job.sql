@@ -13,7 +13,9 @@
 
  Date: 03/04/2019 18:32:31
 */
+CREATE DATABASE `jwc_score_job` DEFAULT CHARACTER SET utf8;
 
+USE `jwc_score_job`;
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 

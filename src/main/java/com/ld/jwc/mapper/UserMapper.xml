@@ -7,16 +7,24 @@
         select uid, username, password, college, major, user_type from user where record_status = 0
     </select>
     <select id="getAllUserByStatus" resultType="com.ld.jwc.bean.User">
-        select uid, username, password, college, major, user_type from user where record_status = #{recoreStatus}
+        select uid, username, password, college, major, user_type from user where record_status = #{recordStatus}
     </select>
     <select id="getInfoByUid" resultType="com.ld.jwc.bean.User">
         select uid, username, password, college, major, user_type from user where uid=#{uid}
     </select>
-    <select id="getCountByName" resultType="com.ld.jwc.bean.User">
+    <select id="getCountByName">
         select count(1) from user where username=#{username}
     </select>
 
     <insert id="addUser" useGeneratedKeys="true" keyProperty="id">
         insert into user set uid=#{uid}, username=#{username}, password=#{password}, college=#{college}, major=#{major}, user_type=#{userType}
     </insert>
+
+    <update id="updateUserTypeByUid">
+        update user set user_type=#{userType}
+    </update>
+
+    <update id="updateRecordStatus">
+        update user set record_status=1 where uid=#{uid}
+    </update>
 </mapper>
