@@ -4,6 +4,8 @@ import com.ld.jwc.bean.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 /**
  * @author miaoguangqiang on 2019-04-04
  * @version 1.0
@@ -11,9 +13,9 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface UserMapper {
 
-    User getAllUser();
+    List<User> getAllUser();
 
-    User getAllgetAllUserByStatus(@Param("recordStatus") int recordStatus);
+    List<User> getAllUserByStatus(@Param("recordStatus") int recordStatus);
 
     User getInfoByUid(@Param("uid") Integer uid);
 
