@@ -1,7 +1,5 @@
-package com.ld.jwc.application;
+package com.ld.jwc.util;
 
-import com.ld.jwc.util.BjgRegularUtil;
-import com.ld.jwc.util.RegularUtil;
 import org.apache.commons.httpclient.Cookie;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.NameValuePair;
@@ -16,8 +14,7 @@ import java.sql.SQLOutput;
 /**
  * @author mgq
  */
-public class HttpLogin {
-    private final int HTTP_STATUS_SUCCESS = 200;
+public class HttpLoginUtil {
 
     private static String userIdWang = "152703104";
 
@@ -27,7 +24,7 @@ public class HttpLogin {
 
     private static String passwordXu = "205350";
 
-    public static void main(String[] args) {
+    public void getScore() {
         // 登陆 Url
         String loginUrl = "http://jwgl.lnu.edu.cn/pls/wwwbks/bks_login2.login";
         // 需登陆后访问的 Url(已修课程)
