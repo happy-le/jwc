@@ -24,5 +24,4 @@ public interface UserMapper {
     int updateUserTypeByUid(@Param("userType") int userType);
 
     int updateRecordStatus(@Param("uid") int uid);
-    
 }
