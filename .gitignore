@@ -23,4 +23,11 @@ dist/
 nbdist/
 .nb-gradle/
 
+# node js
+node_modules/
+
+# maven
+dependency-reduced-pom.xml
+
+#some local files
 .DS_Store
