@@ -21,9 +21,9 @@ public interface UserMapper {
 
     int getCountByName(@Param("username") String username);
 
-    int addUser(@Param("uid") int uid, @Param("usernname") String username, @Param("password") String password, @Param("college") String college, @Param("major") String major, @Param("userType") int userType);
+    int addUser(User user);
 
-    int updateUserTypeByUid(@Param("userType") int userType);
+    int updateUserTypeByUid(@Param("userType") int userType, @Param("uid") int uid);
 
-    int updateRecordStatus(@Param("uid") int uid);
+    int updateRecordStatusByUid(@Param("recordStatus") int recordStatus, @Param("uid") int uid);
 }

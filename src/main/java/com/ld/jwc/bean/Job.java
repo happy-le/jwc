@@ -3,7 +3,7 @@ package com.ld.jwc.bean;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * @author miaoguangqiang on 2019-04-03
@@ -12,6 +12,8 @@ import java.sql.Timestamp;
 @Getter
 @Setter
 public class Job {
+
+    private Integer id;
 
     private Integer uid;
 
@@ -31,6 +33,8 @@ public class Job {
 
     private Integer recordStatus;
 
-    private Timestamp createdAt;
+    private Date createdAt;
+
+    private Date updatedAt;
 
 }

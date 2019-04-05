@@ -7,6 +7,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.Date;
 
 /**
  * @author miaoguangqiang on 2019-04-03
@@ -15,6 +16,8 @@ import java.util.Collection;
 @Getter
 @Setter
 public class User implements UserDetails {
+
+    private Integer id;
 
     private Integer uid;
 
@@ -26,9 +29,14 @@ public class User implements UserDetails {
 
     private String major;
 
-    private Integer userType;
+    private Byte userType;
 
     private Integer recordStatus;
+
+    private Date createdAt;
+
+    private Date updatedAt;
+
 
     @Override
     @JsonIgnore

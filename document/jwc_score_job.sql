@@ -50,7 +50,7 @@ CREATE TABLE `total_score` (
   `class_name` varchar(256) NOT NULL DEFAULT '' COMMENT '课程名',
   `no_id` int(5) NOT NULL DEFAULT '0' COMMENT '序号',
   `credit` double NOT NULL DEFAULT '0' COMMENT '学分',
-  `time` varchar(16) NOT NULL DEFAULT '' COMMENT '学期',
+  `exam_time` varchar(16) NOT NULL DEFAULT '' COMMENT '考试时间',
   `grade` double NOT NULL DEFAULT '0' COMMENT '得分',
   `record_status` tinyint(2) NOT NULL DEFAULT '0' COMMENT '是否有效 0:正常 1:失效',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',

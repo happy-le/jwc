@@ -3,7 +3,7 @@ package com.ld.jwc.bean;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * @author miaoguangqiang on 2019-04-03
@@ -12,6 +12,8 @@ import java.sql.Timestamp;
 @Getter
 @Setter
 public class TotalScore {
+
+    private Integer id;
 
     private Integer uid;
 
@@ -23,7 +25,7 @@ public class TotalScore {
 
     private Double credit;
 
-    private String time;
+    private String examTime;
 
     private Double grade;
 
@@ -31,5 +33,7 @@ public class TotalScore {
 
     private String term;
 
-    private Timestamp createdAt;
+    private Date createdAt;
+
+    private Date updatedAt;
 }
