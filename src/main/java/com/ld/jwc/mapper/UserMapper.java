@@ -19,7 +19,7 @@ public interface UserMapper {
 
     User getInfoByUid(@Param("uid") Integer uid);
 
-    int getCountByName(@Param("username") String username);
+    List<User> loadUserByUsername(@Param("username") String username);
 
     int addUser(User user);
 

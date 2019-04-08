@@ -35,8 +35,8 @@
         <include refid="Base_Column_List"/>
         from user where uid=#{uid}
     </select>
-    <select id="getCountByName" resultType="java.lang.Integer">
-        select count(1) from user where username=#{username}
+    <select id="loadUserByUsername" resultType="BaseResultMap">
+        select * from user where username=#{username}
     </select>
 
     <insert id="addUser" parameterType="com.ld.jwc.bean.User">

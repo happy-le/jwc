@@ -30,6 +30,10 @@ public class UserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
+        List<User> userList = userMapper.loadUserByUsername(s);
+        if(userList == null) {
+            return new User();
+        }
         return null;
     }
 }
