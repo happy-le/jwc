@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+
+    <properties>
+        <property name="invLogHome">/med/log/apps</property>
+        <property name="logHome">/data/service_logs/java</property>
+        <property name="project">jwc</property>
+        <property name="module">jwc-score-job</property>
+    </properties>
+
+    <Appenders>
+        <Console name="myConsole" target="SYSTEM_OUT">
+            <PatternLayout
+                    pattern="%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ} [%level] ${project}/${module} -%X{filter} &lt;%t|%C{1.}.%M(%L)&gt; -%X{requestId} %m%n%ex"/>
+        </Console>
+
+        <RollingFile name="infoAppender" fileName="${logHome}/${project}-${module}.info.log"
+                     filePattern="${logHome}/${project}-${module}.info.log.%d{yyyy-MM-dd}">
+            <PatternLayout>
+                <Pattern>
+                    %d{yyyy-MM-dd'T'HH:mm:ss.SSSZ} [%level] ${project}/${module} -%X{filter} &lt;%t|%C{1.}.%M(%L)&gt;
+                    -%X{requestId} %m%n%ex
+                </Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+            </Policies>
+        </RollingFile>
+
+        <RollingFile name="warnAppender" fileName="${logHome}/${project}-${module}.warn.log"
+                     filePattern="${logHome}/${project}-${module}.warn.log.%d{yyyy-MM-dd}">
+            <PatternLayout>
+                <Pattern>
+                    %d{yyyy-MM-dd'T'HH:mm:ss.SSSZ} [%level] ${project}/${module} -%X{filter} &lt;%t|%C{1.}.%M(%L)&gt;
+                    -%X{requestId} %m%n%ex
+                </Pattern>
+            </PatternLayout>
+            <Filters>
+                <ThresholdFilter level="error" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="warn" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+            </Policies>
+        </RollingFile>
+
+        <RollingFile name="errorAppender" fileName="${logHome}/${project}-${module}.error.log"
+                     filePattern="${logHome}/${project}-${module}.error.log.%d{yyyy-MM-dd}">
+            <PatternLayout>
+                <Pattern>
+                    %d{yyyy-MM-dd'T'HH:mm:ss.SSSZ} [%level] ${project}/${module} -%X{filter} &lt;%t|%C{1.}.%M(%L)&gt;
+                    -%X{requestId} %m%n%ex
+                </Pattern>
+            </PatternLayout>
+            <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+            </Policies>
+        </RollingFile>
+
+        <!-- sql日志 -->
+        <RollingFile name="druidSqlAppender" fileName="${logHome}/${project}-${module}.sql.log"
+                     filePattern="${logHome}/${project}-${module}.sql.log.%d{yyyy-MM-dd}">
+            <PatternLayout>
+                <Pattern>
+                    %d{yyyy-MM-dd'T'HH:mm:ss.SSSZ} [%level] ${project}/${module} -%X{filter} &lt;%t|%C{1.}.%M(%L)&gt;
+                    -%X{requestId} %m%n%ex
+                </Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+            </Policies>
+            <DefaultRolloverStrategy>
+                <Delete basePath="${logHome}" maxDepth="1">
+                    <IfFileName glob="${project}-${module}-sql.log.*"/>
+                    <IfLastModified age="7d"/>
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
+
+        <!-- 调用日志 -->
+        <RollingFile name="invokeAppender" fileName="${invLogHome}/${project}-${module}-invoke.log"
+                     filePattern="${logHome}/${project}-${module}-invoke.log.%d{yyyy-MM-dd}">
+            <PatternLayout>
+                <Pattern>
+                    %d{yyyy-MM-dd'T'HH:mm:ss.SSSZ} [%level] ${project}/${module} -%X{filter} &lt;%t|%C{1.}.%M(%L)&gt;
+                    -%X{requestId} %m%n%ex
+                </Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+            </Policies>
+            <DefaultRolloverStrategy>
+                <Delete basePath="${logHome}" maxDepth="1">
+                    <IfFileName glob="${project}-${module}-invoke.log.*"/>
+                    <IfLastModified age="7d"/>
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="myConsole"/>
+            <AppenderRef ref="infoAppender"/>
+            <AppenderRef ref="warnAppender"/>
+            <AppenderRef ref="errorAppender"/>
+        </Root>
+    </Loggers>
+</Configuration>

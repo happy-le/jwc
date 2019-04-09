@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="mysql" targetRuntime="MyBatis3">
+        <!-- generate entity时，生成hashcode和equals方法 -->
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
+        <!-- generate entity时，生成serialVersionUID -->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <!-- 这个插件只会增加字符串字段映射到一个JDBC字符的方法 -->
+        <plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin"/>
+        <!-- genenat entity时,生成toString -->
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+        <commentGenerator>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/jwc_score_job?zeroDateTimeBehavior=convertToNull"
+                        userId="root"
+                        password="12345">
+        </jdbcConnection>
+
+        <javaTypeResolver type="org.mybatis.generator.internal.types.JavaTypeResolverDefaultImpl">
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="com.ld.jwc.jwc_score_job.model.mysql.entity.JwcScoreJob"
+                            targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="mapper"
+                         targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.ld.jwc.jwc_score_job.dao.mysql.mapper.XincheDataQuality"
+                             targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <table schema="" tableName="user" domainObjectName="User"
+               enableSelectByExample="true">
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        </table>
+
+        <table schema="" tableName="job" domainObjectName="Job"
+               enableSelectByExample="true">
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        </table>
+
+        <table schema="" tableName="total_score" domainObjectName="TotalScore"
+               enableSelectByExample="true">
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        </table>
+    </context>
+</generatorConfiguration>

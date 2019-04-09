@@ -14,12 +14,4 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @SpringBootTest
 public class UserServiceTest {
 
-    @Autowired
-    UserService userService;
-
-    @Test
-    public void getAllUser() {
-        System.out.println(userService);
-        System.out.println(userService.getAllUser());
-    }
 }
