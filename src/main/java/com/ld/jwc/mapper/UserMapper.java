@@ -17,13 +17,13 @@ public interface UserMapper {
 
     List<User> getAllUserByStatus(@Param("recordStatus") int recordStatus);
 
-    User getInfoByUid(@Param("uid") Integer uid);
+    User getInfoByUid(@Param("uid") String uid);
 
     List<User> loadUserByUsername(@Param("username") String username);
 
     int addUser(User user);
 
-    int updateUserTypeByUid(@Param("userType") int userType, @Param("uid") int uid);
+    int updateUserTypeByUid(@Param("userType") int userType, @Param("uid") String uid);
 
-    int updateRecordStatusByUid(@Param("recordStatus") int recordStatus, @Param("uid") int uid);
+    int updateRecordStatusByUid(@Param("recordStatus") int recordStatus, @Param("uid") String uid);
 }

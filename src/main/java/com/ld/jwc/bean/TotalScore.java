@@ -15,13 +15,13 @@ public class TotalScore {
 
     private Integer id;
 
-    private Integer uid;
+    private String uid;
 
     private String classNum;
 
     private String className;
 
-    private Integer noId;
+    private String noId;
 
     private Double credit;
 

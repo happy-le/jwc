@@ -15,7 +15,7 @@ public class Job {
 
     private Integer id;
 
-    private Integer uid;
+    private String uid;
 
     private String address;
 

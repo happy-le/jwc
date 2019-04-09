@@ -15,7 +15,7 @@ public interface JobMapper {
 
     List<Job> getAllJobs();
 
-    List<Job> getJobsByUid(@Param("uid") int uid);
+    List<Job> getJobsByUid(@Param("uid") String uid);
 
     int addJob(@Param("newJob") Job job);
 }

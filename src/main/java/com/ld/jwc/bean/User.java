@@ -19,7 +19,7 @@ public class User implements UserDetails {
 
     private Integer id;
 
-    private Integer uid;
+    private String uid;
 
     private String username;
 

@@ -46,7 +46,7 @@
         values (#{uid}, #{classNum}, #{className}, #{noId}, #{credit}, #{examTime}, #{grade}, #{term})
     </insert>
 
-    <update id="deleteScoreByClassNum" parameterType="java.lang.Integer">
+    <update id="deleteScoreByClassNum" parameterType="java.lang.String">
         update total_score set record_status=1 where class_num=#{classNum}
     </update>
 

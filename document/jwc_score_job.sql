@@ -11,7 +11,7 @@
  Target Server Version : 80012
  File Encoding         : 65001
 
- Date: 03/04/2019 18:32:31
+ Date: 09/04/2019 11:01:32
 */
 CREATE DATABASE `jwc_score_job` DEFAULT CHARACTER SET utf8;
 
@@ -25,7 +25,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `job`;
 CREATE TABLE `job` (
   `id` bigint(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
-  `uid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '学号',
+  `uid` varchar(11) NOT NULL DEFAULT '0' COMMENT '学号',
   `address` varchar(64) NOT NULL DEFAULT '' COMMENT '地址',
   `email` varchar(64) NOT NULL DEFAULT '' COMMENT '邮箱',
   `company` varchar(64) NOT NULL DEFAULT '' COMMENT '企业',
@@ -45,12 +45,12 @@ CREATE TABLE `job` (
 DROP TABLE IF EXISTS `total_score`;
 CREATE TABLE `total_score` (
   `id` bigint(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
-  `uid` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '学号',
+  `uid` varchar(11) NOT NULL DEFAULT '0' COMMENT '学号',
   `calss_num` varchar(10) NOT NULL DEFAULT '' COMMENT '课程号',
   `class_name` varchar(256) NOT NULL DEFAULT '' COMMENT '课程名',
-  `no_id` int(5) NOT NULL DEFAULT '0' COMMENT '序号',
+  `no_id` varchar(11) NOT NULL DEFAULT '0' COMMENT '序号',
   `credit` double NOT NULL DEFAULT '0' COMMENT '学分',
-  `exam_time` varchar(16) NOT NULL DEFAULT '' COMMENT '考试时间',
+  `exam_time` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '考试时间',
   `grade` double NOT NULL DEFAULT '0' COMMENT '得分',
   `record_status` tinyint(2) NOT NULL DEFAULT '0' COMMENT '是否有效 0:正常 1:失效',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',

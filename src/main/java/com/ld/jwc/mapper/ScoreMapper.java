@@ -13,11 +13,11 @@ import java.util.List;
 @Mapper
 public interface ScoreMapper {
 
-    List<TotalScore> getAllScoreByUid(@Param("uid") int uid);
+    List<TotalScore> getAllScoreByUid(@Param("uid") String uid);
 
-    List<TotalScore> getBjgScore(@Param("uid") int uid);
+    List<TotalScore> getBjgScore(@Param("uid") String uid);
 
-    List<TotalScore> getScoreByTerm(@Param("term") String term, @Param("uid") int uid);
+    List<TotalScore> getScoreByTerm(@Param("term") String term, @Param("uid") String uid);
 
     int addNewGrade(TotalScore totalScore);
 
