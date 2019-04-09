@@ -11,9 +11,9 @@ import java.util.Date;
  */
 @Getter
 @Setter
-public class TotalScore {
+public class TotalScoreDTO {
 
-    private Integer id;
+    private Long id;
 
     private String uid;
 
@@ -29,7 +29,7 @@ public class TotalScore {
 
     private Double grade;
 
-    private Integer recordStatus;
+    private Byte recordStatus;
 
     private String term;
 

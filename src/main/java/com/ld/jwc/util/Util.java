@@ -1,6 +1,6 @@
 package com.ld.jwc.util;
 
-import com.ld.jwc.bean.User;
+import com.ld.jwc.bean.UserDTO;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 /**
@@ -8,8 +8,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
  * @version 1.0
  */
 public class Util {
-    public static User getCurrentUser() {
-        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    public static UserDTO getCurrentUser() {
+        UserDTO user = (UserDTO) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         return user;
     }
 }

@@ -11,9 +11,9 @@ import java.util.Date;
  */
 @Getter
 @Setter
-public class Job {
+public class JobDTO {
 
-    private Integer id;
+    private Long id;
 
     private String uid;
 
@@ -31,7 +31,7 @@ public class Job {
 
     private String extra;
 
-    private Integer recordStatus;
+    private Byte recordStatus;
 
     private Date createdAt;
 

@@ -15,9 +15,9 @@ import java.util.Date;
  */
 @Getter
 @Setter
-public class User implements UserDetails {
+public class UserDTO implements UserDetails {
 
-    private Integer id;
+    private Long id;
 
     private String uid;
 
@@ -31,7 +31,7 @@ public class User implements UserDetails {
 
     private Byte userType;
 
-    private Integer recordStatus;
+    private Byte recordStatus;
 
     private Date createdAt;
 
