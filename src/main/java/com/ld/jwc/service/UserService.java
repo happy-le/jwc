@@ -34,25 +34,33 @@ public class UserService implements UserDetailsService {
         userExample.createCriteria()
                 .andUidEqualTo(uid)
                 .andRecordStatusEqualTo((byte)0);
-        return UserUtil.toUserDTO(userMapper.selectByExample(userExample).get(0));
+        return UserUtil.toUserDTO(this.userMapper.selectByExample(userExample).get(0));
     }
 
     public boolean addNewUser(UserDTO user) {
         User newUser = new User();
         newUser = UserUtil.toEntity(user);
         LOGGER.info("新用户 ： {}", newUser);
-        int num = userMapper.insert(newUser);
+        int num = this.userMapper.insert(newUser);
         if(num > 0) {
             return true;
         }
         return false;
     }
 
-    public int deleteUserByUid(String uid) {
+    public boolean deleteUserByUid(String uid) {
         LOGGER.info("删除用户 ： {}", uid);
         UserExample userExample = new UserExample();
         userExample.createCriteria()
                 .andUidEqualTo(uid);
-        return userMapper.deleteByExample(userExample);
+        return this.userMapper.deleteByExample(userExample) == 1;
+    }
+
+    public boolean updatedPass(UserDTO dto, String uid) {
+        LOGGER.info("updated by {}",dto);
+        UserExample userExample = new UserExample();
+        userExample.createCriteria()
+                .andUidEqualTo(uid);
+        return this.userMapper.updateByExampleSelective(UserUtil.toEntity(dto), userExample) == 1;
     }
 }
