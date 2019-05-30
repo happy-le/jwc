@@ -8,11 +8,10 @@ import com.ld.jwc.util.UserUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Map;
 
 /**
  * @author miaoguangqiang on 2019-04-09
@@ -20,22 +19,12 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 @Transactional
-public class UserService implements UserDetailsService {
+public class UserService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(UserService.class);
 
     @Autowired
     UserMapper userMapper;
-
-    @Override
-    public UserDetails loadUserByUsername(String uid) throws UsernameNotFoundException {
-        LOGGER.info("用户{}", uid);
-        UserExample userExample = new UserExample();
-        userExample.createCriteria()
-                .andUidEqualTo(uid)
-                .andRecordStatusEqualTo((byte)0);
-        return UserUtil.toUserDTO(this.userMapper.selectByExample(userExample).get(0));
-    }
 
     public boolean addNewUser(UserDTO user) {
         User newUser = new User();
@@ -62,5 +51,8 @@ public class UserService implements UserDetailsService {
         userExample.createCriteria()
                 .andUidEqualTo(uid);
         return this.userMapper.updateByExampleSelective(UserUtil.toEntity(dto), userExample) == 1;
+    }
+    public User login(Map<String,String> map) {
+        return new User();
     }
 }
