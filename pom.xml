@@ -41,7 +41,7 @@
         <org.apache.logging.log4j.version>2.11.1</org.apache.logging.log4j.version>
 
         <!-- test -->
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
 
         <!--for maven compiler plugin-->
         <maven.compiler.plugin.version>2.3.2</maven.compiler.plugin.version>
