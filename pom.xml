@@ -38,7 +38,7 @@
         <io.micrometer.version>1.0.3</io.micrometer.version>
 
         <!-- logging -->
-        <org.apache.logging.log4j.version>2.11.1</org.apache.logging.log4j.version>
+        <org.apache.logging.log4j.version>2.15.0</org.apache.logging.log4j.version>
 
         <!-- test -->
         <junit.version>4.12</junit.version>
